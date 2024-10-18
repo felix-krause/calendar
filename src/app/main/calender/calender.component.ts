@@ -79,12 +79,14 @@ export class CalenderComponent implements AfterViewInit {
 
   private scrollToToday() {
     setTimeout(() => {
-      document
-        .querySelector('.first')!
-        .scrollIntoView({ behavior: 'smooth', block: 'center' });
-      document
-        .querySelector('.today')!
-        .scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const first = document.querySelector('.first');
+      if (first) {
+        first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      const today = document.querySelector('.today');
+      if (today) {
+        today.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }, 100);
   }
 }

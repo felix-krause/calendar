@@ -1,11 +1,11 @@
 <div class="h-screen overflow-auto">
 <div class="flex justify-between items-center p-4 sticky top-0 bg-white z-10">
-  <button mat-stroked-button (click)="prevMonth()">{{ "MAIN.PREVIOUSMONTH" | translate }}</button>
-  <span class="text-xl">{{ currentDate | date: 'MMMM yyyy' }}</span>
-  <button mat-stroked-button (click)="nextMonth()">{{ "MAIN.NEXTMONTH" | translate }}</button>
+  <button mat-button (click)="prevMonth()">{{ "MAIN.PREVIOUSMONTH" | translate }}</button>
+  <span class="text-xl text-center">{{ currentDate | date: 'MMMM yyyy' }}</span>
+  <button mat-button (click)="nextMonth()">{{ "MAIN.NEXTMONTH" | translate }}</button>
 </div>
 
-<ul class="list-none p-0">
+<ul class="list-none p-0 ">
   @for (calenderDay of datesInMonth; track calenderDay.date) {
   <app-day [calenderDay]="calenderDay"></app-day>
 }

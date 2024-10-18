@@ -1,15 +1,17 @@
 <h2 mat-dialog-title>{{ "MAIN.DIALOG.HEADER" | translate }}</h2>
 <mat-dialog-content>
   <form #appointmentForm="ngForm">
+    <p>Add an event, f.e. "Game Night"</p>
   <mat-form-field appearance="fill" class="w-full pb-4">
     <mat-label>{{ "MAIN.APPOINTMENT.TITLE" | translate }}</mat-label>
     <input matInput [(ngModel)]="data.title" name="title" required>
-    @if (appointmentForm.controls['title']!.invalid && appointmentForm.controls['title']!.touched) {
+    @if (appointmentForm.controls['title'] && appointmentForm.controls['title'].invalid && appointmentForm.controls['title'].touched) {
     <mat-error >
       {{ "MAIN.APPOINTMENT.TITLE_REQUIRED" | translate }}
     </mat-error>
   }
   </mat-form-field>
+  <p>Add a description, f.e. "19:00 at Benjis, bring beer"</p>
   <mat-form-field appearance="fill" class="w-full">
     <mat-label>{{ "MAIN.APPOINTMENT.DESCRIPTION" | translate }}</mat-label>
     <input matInput [(ngModel)]="data.description" name="description" >
