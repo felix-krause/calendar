@@ -57,6 +57,14 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "gh-pages": {
+              "baseHref": "/calendar/",
+              "deployUrl": "/calendar/",
+              "outputPath": {
+                "base": "gh-pages",
+                "browser": ""
+              }
             }
           },
           "defaultConfiguration": "production"
