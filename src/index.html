@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Calendar</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,7 +15,7 @@
   <meta name="apple-mobile-web-app-title" content="Calendar" />
   <meta name="color-scheme" content="light dark">
 </head>
-<body class="mat-typography">
+<body class="mat-typography sm:select-none">
   <app-root></app-root>
   <script>
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
