@@ -13,11 +13,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { AppointmentDialogComponent } from '../appointment-dialog/appointment-dialog.component';
+import { ButtonComponent } from '../../../stories/button.component';
 
 @Component({
   selector: 'app-day',
   standalone: true,
-  imports: [CommonModule, TranslateModule, MatButtonModule, MatIconModule],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    TranslateModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   templateUrl: './day.component.html',
   styleUrl: './day.component.scss',
 })
