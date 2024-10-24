@@ -2,6 +2,7 @@
   "name": "Calendar",
   "short_name": "Calendar",
   "display": "standalone",
+  "start_url": "/",
   "icons": [
     {
       "src": "favicon.png",
@@ -28,5 +29,9 @@
       "type": "image/png",
       "sizes": "180x180"
     }
-  ]
+  ],
+  "theme_color": "#dbeafe",
+  "background_color": "#dbeafe",
+  "theme_color_dark": "#000000",
+  "background_color_dark": "#000000"
 }
