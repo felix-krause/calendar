@@ -31,7 +31,5 @@
     }
   ],
   "theme_color": "#dbeafe",
-  "background_color": "#dbeafe",
-  "theme_color_dark": "#000000",
-  "background_color_dark": "#000000"
+  "background_color": "#dbeafe"
 }

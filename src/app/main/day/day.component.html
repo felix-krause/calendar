@@ -1,28 +1,43 @@
 @if (calenderDay) {
-<li class="relative group hover:bg-gray-200 p-4 border-b border-gray-300 dark:border-gray-700 dark:hover:bg-gray-800"
-[ngClass]="{'today bg-blue-200 hover:bg-blue-300 dark:bg-gray-900 dark:hover:bg-gray-1000': calenderDay.today, 'first': calenderDay.date === 1}">
-  <div class="flex justify-between" >
+<li
+  class="relative group hover:bg-gray-200 p-4 border-b border-gray-300 dark:border-gray-700 dark:hover:bg-gray-800"
+  [ngClass]="{
+    'today bg-blue-200 hover:bg-blue-300 dark:bg-gray-900 dark:hover:bg-gray-1000':
+      calenderDay.today,
+    first: calenderDay.date === 1
+  }"
+>
+  <div class="flex justify-between">
     <div>
-    <span class="text-2xl">{{ calenderDay.date }} </span>
-    <span class="text-sm font-light">{{ "MAIN.WEEKDAY." + calenderDay.day | translate }}</span>
+      <span class="text-2xl">{{ calenderDay.date }} </span>
+      <span class="text-sm font-light">{{
+        "MAIN.WEEKDAY." + calenderDay.day | translate
+      }}</span>
+    </div>
+    <button
+      mat-icon-button
+      (click)="addAppointment()"
+      [attr.aria-label]="'MAIN.ADDAPPOINTMENT' | translate"
+    >
+      <mat-icon class="text-rg">add</mat-icon>
+    </button>
   </div>
-  <button mat-button (click)="addAppointment()">
-    {{ "MAIN.ADDAPPOINTMENT" | translate }}
-  </button>
-
-</div>
   <div class="flex flex-col">
-      @for (appointment of appointments$ | async; track appointment.id) {
-        <div class="flex gap-2">
-          <button mat-icon-button (click)="deleteAppointment(appointment.id!)" class="self-center">
-            <mat-icon class="text-rg">close</mat-icon>
-          </button>
-          <div class="self-center">
-            <span class="text-xl">{{ appointment.title }} </span>
-            <span class="text-sm font-light">{{ appointment.description }} </span>
-          </div>
-        </div>
-      }
+    @for (appointment of appointments$ | async; track appointment.id) {
+    <div class="flex gap-2">
+      <button
+        mat-icon-button
+        (click)="deleteAppointment(appointment.id!)"
+        class="self-center"
+      >
+        <mat-icon class="text-rg">close</mat-icon>
+      </button>
+      <div class="self-center">
+        <span class="text-xl">{{ appointment.title }} </span>
+        <span class="text-sm font-light">{{ appointment.description }} </span>
+      </div>
+    </div>
+    }
   </div>
 </li>
 }
