@@ -2,10 +2,10 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { AfterViewInit, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { MatCardModule } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 import { CalendarDay } from '../../core/models/calendar-day';
 import { DayComponent } from '../day/day.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-calender',
@@ -15,6 +15,7 @@ import { DayComponent } from '../day/day.component';
     MatButtonModule,
     CommonModule,
     TranslateModule,
+    MatIconModule,
     DayComponent,
   ],
   templateUrl: './calender.component.html',
