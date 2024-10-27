@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration gh-pages",
+    "build": "prettier . -w && ng build --configuration gh-pages",
     "test": "ng test"
   },
   "private": true,
