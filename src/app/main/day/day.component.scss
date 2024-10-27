@@ -1,0 +1,46 @@
+.calendar-day {
+  &.today {
+    background-color: var(--primary);
+  }
+
+  position: relative;
+  padding: 1rem;
+  border-bottom: 0.1px solid var(--text);
+
+  .date-and-day {
+    display: flex;
+    justify-content: space-between;
+
+    .date {
+      font-size: x-large;
+    }
+
+    .day {
+      font-size: small;
+      font-weight: 200;
+    }
+  }
+
+  .appointments {
+    display: flex;
+    flex-direction: column;
+
+    .appointment {
+      display: flex;
+      gap: 0.5rem;
+
+      > * {
+        align-self: center;
+      }
+
+      .title {
+        font-size: large;
+      }
+
+      .description {
+        font-size: small;
+        font-weight: 200;
+      }
+    }
+  }
+}

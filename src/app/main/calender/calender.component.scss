@@ -1,0 +1,27 @@
+.calendar {
+  height: 100vh;
+  overflow: auto;
+
+  .calendar-header {
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .month-display {
+      text-align: center;
+      font-size: large;
+    }
+  }
+
+  .calendar-list {
+    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}

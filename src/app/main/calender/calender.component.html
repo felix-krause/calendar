@@ -1,25 +1,23 @@
-<div class="h-screen overflow-auto">
+<div class="calendar">
   <div class="calendar-header">
     <button
       mat-icon-button
       (click)="prevMonth()"
       [attr.aria-label]="'MAIN.PREVIOUSMONTH' | translate"
     >
-      <mat-icon class="text-rg">chevron_left</mat-icon>
+      <mat-icon>chevron_left</mat-icon>
     </button>
-    <span class="text-xl text-center">{{
-      currentDate | date: "MMMM yyyy"
-    }}</span>
+    <span class="month-display">{{ currentDate | date: "MMMM yyyy" }}</span>
     <button
       mat-icon-button
       (click)="nextMonth()"
       [attr.aria-label]="'MAIN.NEXTMONTH' | translate"
     >
-      <mat-icon class="text-rg">chevron_right</mat-icon>
+      <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
 
-  <ul class="list-none p-0">
+  <ul class="calendar-list">
     @for (calenderDay of datesInMonth; track calenderDay.date) {
       <app-day [calenderDay]="calenderDay"></app-day>
     }
