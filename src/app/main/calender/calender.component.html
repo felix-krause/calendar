@@ -1,18 +1,27 @@
 <div class="h-screen overflow-auto">
-<div class="flex justify-between items-center p-4 sticky top-0 bg-blue-100 z-10 dark:bg-gray-900">
-  <button mat-icon-button (click)="prevMonth()" [attr.aria-label]="'MAIN.PREVIOUSMONTH' | translate">
-    <mat-icon class="text-rg">chevron_left</mat-icon>
-  </button>
-  <span class="text-xl text-center">{{ currentDate | date: 'MMMM yyyy' }}</span>
-  <button mat-icon-button (click)="nextMonth()" [attr.aria-label]="'MAIN.NEXTMONTH' | translate">
+  <div class="calendar-header">
+    <button
+      mat-icon-button
+      (click)="prevMonth()"
+      [attr.aria-label]="'MAIN.PREVIOUSMONTH' | translate"
+    >
+      <mat-icon class="text-rg">chevron_left</mat-icon>
+    </button>
+    <span class="text-xl text-center">{{
+      currentDate | date : "MMMM yyyy"
+    }}</span>
+    <button
+      mat-icon-button
+      (click)="nextMonth()"
+      [attr.aria-label]="'MAIN.NEXTMONTH' | translate"
+    >
+      <mat-icon class="text-rg">chevron_right</mat-icon>
+    </button>
+  </div>
 
-    <mat-icon class="text-rg">chevron_right</mat-icon>
-  </button>
-</div>
-
-<ul class="list-none p-0 ">
-  @for (calenderDay of datesInMonth; track calenderDay.date) {
-  <app-day [calenderDay]="calenderDay"></app-day>
-}
-</ul>
+  <ul class="list-none p-0">
+    @for (calenderDay of datesInMonth; track calenderDay.date) {
+    <app-day [calenderDay]="calenderDay"></app-day>
+    }
+  </ul>
 </div>

@@ -1,12 +1,59 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --primary: #FFBE98;
+  --highlight: #D87737;
+  --bg: #FFF7F0;
+  --text: #402E32;
+
+  &.dark {
+    --primary: #cc987a;
+    --highlight: #D87737;
+    --bg: #000;
+    --text: #DFE0DF;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--bg);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text) !important;
+}
+
+@media (max-width: 640px) {
+  body {
+    user-select: none;
+  };
+}
 
 .full-page-dialog {
   width: 100% !important;
   max-width: none !important;
   margin: 16px !important;
+}
+
+.calendar-header {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.calendar-day {
+  &.today {
+    background-color: var(--primary);
+  }
+
+  position: relative;
+  padding: 1rem;
+  border-bottom: .1px solid var(--text);
 }
