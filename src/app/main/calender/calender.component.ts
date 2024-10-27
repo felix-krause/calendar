@@ -28,7 +28,7 @@ export class CalenderComponent implements AfterViewInit {
   constructor() {
     this.generateMonth(
       this.currentDate.getFullYear(),
-      this.currentDate.getMonth()
+      this.currentDate.getMonth(),
     );
   }
   ngAfterViewInit(): void {
@@ -56,7 +56,7 @@ export class CalenderComponent implements AfterViewInit {
     this.incrementMonth(-1);
     this.generateMonth(
       this.currentDate.getFullYear(),
-      this.currentDate.getMonth()
+      this.currentDate.getMonth(),
     );
     this.scrollToToday();
   }
@@ -65,7 +65,7 @@ export class CalenderComponent implements AfterViewInit {
     this.incrementMonth(1);
     this.generateMonth(
       this.currentDate.getFullYear(),
-      this.currentDate.getMonth()
+      this.currentDate.getMonth(),
     );
     this.scrollToToday();
   }
@@ -74,7 +74,7 @@ export class CalenderComponent implements AfterViewInit {
     this.currentDate = new Date(
       this.currentDate.getFullYear(),
       this.currentDate.getMonth() + delta,
-      this.currentDate.getDate()
+      this.currentDate.getDate(),
     );
   }
 

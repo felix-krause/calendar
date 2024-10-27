@@ -26,7 +26,7 @@ import { TranslateModule } from '@ngx-translate/core';
 export class AppointmentDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<AppointmentDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: AppointmentDialogData
+    @Inject(MAT_DIALOG_DATA) public data: AppointmentDialogData,
   ) {}
 
   onCancel(): void {

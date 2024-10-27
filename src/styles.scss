@@ -3,16 +3,16 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --primary: #FFBE98;
-  --highlight: #D87737;
-  --bg: #FFF7F0;
-  --text: #402E32;
+  --primary: #ffbe98;
+  --highlight: #d87737;
+  --bg: #fff7f0;
+  --text: #402e32;
 
   &.dark {
     --primary: #cc987a;
-    --highlight: #D87737;
+    --highlight: #d87737;
     --bg: #000;
-    --text: #DFE0DF;
+    --text: #dfe0df;
   }
 }
 
@@ -28,7 +28,7 @@ body {
 @media (max-width: 640px) {
   body {
     user-select: none;
-  };
+  }
 }
 
 .full-page-dialog {
@@ -55,5 +55,5 @@ body {
 
   position: relative;
   padding: 1rem;
-  border-bottom: .1px solid var(--text);
+  border-bottom: 0.1px solid var(--text);
 }

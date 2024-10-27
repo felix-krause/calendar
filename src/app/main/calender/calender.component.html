@@ -8,7 +8,7 @@
       <mat-icon class="text-rg">chevron_left</mat-icon>
     </button>
     <span class="text-xl text-center">{{
-      currentDate | date : "MMMM yyyy"
+      currentDate | date: "MMMM yyyy"
     }}</span>
     <button
       mat-icon-button
@@ -21,7 +21,7 @@
 
   <ul class="list-none p-0">
     @for (calenderDay of datesInMonth; track calenderDay.date) {
-    <app-day [calenderDay]="calenderDay"></app-day>
+      <app-day [calenderDay]="calenderDay"></app-day>
     }
   </ul>
 </div>

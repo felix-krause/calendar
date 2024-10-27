@@ -9,7 +9,7 @@ import { AppointmentDbService } from './appointment-db.service';
 export class AppointmentService {
   constructor(
     private appointmentStore: AppointmentStore,
-    private appointmentDbService: AppointmentDbService
+    private appointmentDbService: AppointmentDbService,
   ) {}
 
   async addAppointment(appointment: Appointment) {

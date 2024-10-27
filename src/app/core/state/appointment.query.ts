@@ -17,8 +17,8 @@ export class AppointmentQuery extends QueryEntity<
   selectAppointmentsByDate(date: string): Observable<Appointment[]> {
     return this.selectAll().pipe(
       map((appointments) =>
-        appointments.filter((appointment) => appointment.date === date)
-      )
+        appointments.filter((appointment) => appointment.date === date),
+      ),
     );
   }
 }

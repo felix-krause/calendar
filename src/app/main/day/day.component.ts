@@ -29,7 +29,7 @@ export class DayComponent implements OnInit {
     this._calenderDay.set(value);
     if (value) {
       this.appointments$ = this.appointmentQuery.selectAppointmentsByDate(
-        value.isoString
+        value.isoString,
       );
     }
   }
@@ -43,14 +43,14 @@ export class DayComponent implements OnInit {
   constructor(
     private appointmentService: AppointmentService,
     private appointmentQuery: AppointmentQuery,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit() {
     this.appointmentService.loadAppointments();
     if (this.calenderDay) {
       this.appointments$ = this.appointmentQuery.selectAppointmentsByDate(
-        this.calenderDay.isoString
+        this.calenderDay.isoString,
       );
     }
   }
