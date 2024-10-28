@@ -1,5 +1,4 @@
 {
-  "LAYOUT.TITLE": "Calendar",
   "MAIN.WEEKDAY.0": "Sunday",
   "MAIN.WEEKDAY.1": "Monday",
   "MAIN.WEEKDAY.2": "Tuesday",
@@ -16,5 +15,10 @@
   "MAIN.DIALOG.SUBMIT": "OK",
   "MAIN.APPOINTMENT.TITLE": "Title",
   "MAIN.APPOINTMENT.DESCRIPTION": "Description (optional)",
-  "MAIN.APPOINTMENT.TITLE_REQUIRED": "Title is required"
+  "MAIN.APPOINTMENT.TITLE_REQUIRED": "Title is required",
+  "MAIN.HOME": "Home",
+  "APP.TITLE": "Get it Done!",
+  "APP.CALENDAR": "Calendar",
+  "APP.HABITS": "Habits",
+  "APP.COPY": "Life can get messy, but staying organized doesn’t have to be hard. We help you manage it all with simple tools that keep you focused and in control. Stay effortlessly organized."
 }

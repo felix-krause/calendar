@@ -1,0 +1,45 @@
+.container {
+  height: calc(
+    100vh
+  ); // Ensure the container takes the full height of the viewport
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; // Prevent scrolling
+  background-color: var(--bg);
+}
+
+.main-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 1; // Allow the main card to shrink
+  flex-grow: 1;
+  width: 100%; // Ensure the main card takes the full width of the container
+  min-height: 0; // Ensure the main card can shrink below its content height
+  background-image: url("/images/desk-opaque.png");
+  background-size: cover; // Ensure the background image is contained within the card
+  background-repeat: no-repeat; // Prevent the background image from repeating
+  background-position: center; // Center the background image within the card
+}
+
+p {
+  margin: 1rem 1rem 0 1rem;
+}
+
+.flex-container {
+  margin: 1rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.flex-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1; // Ensure the cards are square
+  background-color: var(--primary);
+  font-size: x-large;
+  border-radius: 1rem;
+}

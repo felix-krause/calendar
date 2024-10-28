@@ -2,7 +2,7 @@ import { Component, Input, OnInit, signal } from '@angular/core';
 import { CalendarDay } from '../../core/models/calendar-day';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-import { filter, Observable, switchMap } from 'rxjs';
+import { filter, Observable } from 'rxjs';
 import {
   Appointment,
   AppointmentDialogData,
@@ -13,11 +13,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { AppointmentDialogComponent } from '../appointment-dialog/appointment-dialog.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-day',
   standalone: true,
-  imports: [CommonModule, TranslateModule, MatButtonModule, MatIconModule],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+  ],
   templateUrl: './day.component.html',
   styleUrl: './day.component.scss',
 })

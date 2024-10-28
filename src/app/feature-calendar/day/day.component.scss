@@ -5,7 +5,8 @@
 
   position: relative;
   padding: 1rem;
-  border-bottom: 0.1px solid var(--text);
+  margin: 0.25rem;
+  border-radius: 1rem;
 
   .date-and-day {
     display: flex;

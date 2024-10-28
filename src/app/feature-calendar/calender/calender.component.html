@@ -1,5 +1,13 @@
 <div class="calendar">
-  <div class="calendar-header">
+  <div class="calendar-header header">
+    <button
+      mat-icon-button
+      routerLink="/"
+      [attr.aria-label]="'MAIN.HOME' | translate"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+    <h1 class="month-display">{{ currentDate | date: "MMMM yyyy" }}</h1>
     <button
       mat-icon-button
       (click)="prevMonth()"
@@ -7,7 +15,6 @@
     >
       <mat-icon>chevron_left</mat-icon>
     </button>
-    <span class="month-display">{{ currentDate | date: "MMMM yyyy" }}</span>
     <button
       mat-icon-button
       (click)="nextMonth()"

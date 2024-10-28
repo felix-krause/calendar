@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="header">{{ "APP.TITLE" | translate }}</h1>
+  <div class="main-image"></div>
+  <p style="font-weight: 200; font-style: italic">
+    {{ "APP.COPY" | translate }}
+  </p>
+  <p style="font-weight: 200; font-style: italic">
+    {{ "APP.TITLE" | translate }}
+  </p>
+  <div class="flex-container">
+    <mat-card mat-ripple routerLink="/calendar" class="flex-card">
+      {{ "APP.CALENDAR" | translate }}
+    </mat-card>
+    <mat-card mat-ripple routerLink="/habits" class="flex-card">
+      {{ "APP.HABITS" | translate }}
+    </mat-card>
+  </div>
+</div>

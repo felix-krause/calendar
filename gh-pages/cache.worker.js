@@ -1,5 +1,5 @@
-const CACHE_NAME = "calendar-cache-v2.2";
-const urlsToCache = [
+const CACHE_NAME = "calendar-cache-v3";
+var urlsToCache = [
   "/",
   "/index.html",
   "/styles.css",
@@ -7,6 +7,12 @@ const urlsToCache = [
   "/manifest.json",
   // Add other assets you want to cache
 ];
+
+if (self.location.hostname === "localhost") {
+  console.log("Running on localhost, disabling caches");
+  // Add any localhost-specific logic here
+  urlsToCache = [];
+}
 
 // Install the service worker and cache all necessary assets
 self.addEventListener("install", (event) => {

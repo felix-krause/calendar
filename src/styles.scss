@@ -50,13 +50,11 @@ $calendar-dark: mat.define-theme(
 
 :root {
   --primary: #ffbe98;
-  --accent: #d87737;
-  --bg: #fff7f0;
+  --bg: #eeefe3;
   --text: #402e32;
 
   &.dark {
-    --primary: #cc987a;
-    --accent: #d87737;
+    --primary: #d87737;
     --bg: #000;
     --text: #dfe0df;
   }
@@ -90,4 +88,17 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.header {
+  background-color: var(--primary);
+  font-weight: 700;
+  height: 60px;
+  padding: 0 1rem;
+  align-content: center;
+  font-style: italic;
+  margin-top: 0;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  @include mat.elevation(4);
 }
