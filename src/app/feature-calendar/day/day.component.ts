@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { AppointmentDialogComponent } from '../appointment-dialog/appointment-dialog.component';
 import { MatCardModule } from '@angular/material/card';
+import { HabitsDialogComponent } from '../habits-dialog/habits-dialog.component';
 
 @Component({
   selector: 'app-day',
@@ -65,6 +66,23 @@ export class DayComponent implements OnInit {
   addAppointment() {
     this.dialog
       .open(AppointmentDialogComponent, {
+        panelClass: 'full-page-dialog',
+        data: { title: '', description: '' },
+      })
+      .afterClosed()
+      .pipe(filter((result) => !!result))
+      .subscribe((result: AppointmentDialogData) => {
+        const newAppointment: Appointment = {
+          ...result,
+          date: this.calenderDay!.isoString,
+        };
+        this.appointmentService.addAppointment(newAppointment);
+      });
+  }
+
+  addHabits() {
+    this.dialog
+      .open(HabitsDialogComponent, {
         panelClass: 'full-page-dialog',
         data: { title: '', description: '' },
       })

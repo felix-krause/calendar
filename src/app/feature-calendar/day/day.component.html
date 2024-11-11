@@ -13,13 +13,22 @@
           "MAIN.WEEKDAY." + calenderDay.day | translate
         }}</span>
       </div>
-      <button
-        mat-icon-button
-        (click)="addAppointment()"
-        [attr.aria-label]="'MAIN.ADDAPPOINTMENT' | translate"
-      >
-        <mat-icon>add</mat-icon>
-      </button>
+      <div>
+        <button
+          mat-icon-button
+          (click)="addHabits()"
+          [attr.aria-label]="'MAIN.ADDHABITS' | translate"
+        >
+          <mat-icon>list</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="addAppointment()"
+          [attr.aria-label]="'MAIN.ADDAPPOINTMENT' | translate"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
     </div>
     <div class="appointments">
       @for (appointment of appointments$ | async; track appointment.id) {
