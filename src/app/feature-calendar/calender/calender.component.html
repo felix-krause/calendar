@@ -24,9 +24,9 @@
     </button>
   </div>
 
-  <ul class="calendar-list">
+  <div class="calendar-list">
     @for (calenderDay of datesInMonth; track calenderDay.date) {
       <app-day [calenderDay]="calenderDay"></app-day>
     }
-  </ul>
+  </div>
 </div>

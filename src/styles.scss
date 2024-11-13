@@ -37,7 +37,7 @@ $calendar-dark: mat.define-theme(
 :root {
   @include mat.all-component-themes($calendar-light);
   &.dark {
-    @include mat.all-component-themes($calendar-dark);
+    @include mat.all-component-colors($calendar-dark);
   }
 }
 // Comment out the line below if you want to use the pre-defined typography utility classes.
@@ -46,7 +46,7 @@ $calendar-dark: mat.define-theme(
 // Comment out the line below if you want to use the deprecated `color` inputs.
 // @include mat.color-variants-backwards-compatibility($calendar-theme);
 
-@import "@fontsource/roboto/index.css";
+// @import "@fontsource/roboto/index.css";
 
 :root {
   --primary: #ffbe98;

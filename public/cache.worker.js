@@ -1,36 +1,31 @@
-const CACHE_NAME = "calendar-cache-v3.1";
-var urlsToCache = [
+const CACHE_NAME = "calendar-cache-v3.2";
+const urlsToCache = [
   "/",
   "/index.html",
   "/styles.css",
   "/main.js",
   "/manifest.json",
   "/images/desk-opaque.png",
-  // Add other assets you want to cache
 ];
 
-caches.keys().then((cacheNames) => {
-  return Promise.all(
-    cacheNames.map((cacheName) => {
-      return caches.delete(cacheName);
-    }),
-  );
-});
-
-if (self.location.hostname !== "localhost") {
+// Fix the hostname condition
+if (self.location.hostname === "localhost") {
   console.log("Running on localhost, disabling caches");
-  // Add any localhost-specific logic here
-
-  // Install the service worker and cache all necessary assets
+} else {
+  // Install handler
   self.addEventListener("install", (event) => {
     event.waitUntil(
-      caches.open(CACHE_NAME).then((cache) => {
-        return cache.addAll(urlsToCache);
-      }),
+      caches
+        .open(CACHE_NAME)
+        .then((cache) => {
+          console.log("Caching assets...");
+          return cache.addAll(urlsToCache);
+        })
+        .catch((error) => console.error("Cache installation failed:", error)),
     );
   });
 
-  // Activate the service worker and remove old caches
+  // Activate handler
   self.addEventListener("activate", (event) => {
     const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
@@ -46,27 +41,26 @@ if (self.location.hostname !== "localhost") {
     );
   });
 
-  // Fetch assets from the cache or network
+  // Add fetch handler
   self.addEventListener("fetch", (event) => {
     event.respondWith(
       caches.match(event.request).then((response) => {
         if (response) {
           return response;
         }
-        return fetch(event.request).then((response) => {
-          if (
-            !response ||
-            response.status !== 200 ||
-            response.type !== "basic"
-          ) {
+        console.log("Fetching:", event.request.url);
+        return fetch(event.request)
+          .then((response) => {
+            // Cache successful responses
+            if (response && response.status === 200) {
+              const responseToCache = response.clone();
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(event.request, responseToCache);
+              });
+            }
             return response;
-          }
-          const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-          return response;
-        });
+          })
+          .catch((error) => console.error("Fetch failed:", error));
       }),
     );
   });

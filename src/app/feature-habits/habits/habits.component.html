@@ -1,1 +1,18 @@
-<p>habits works!</p>
+<div class="habits">
+  <div class="habits-header header">
+    <button
+      mat-icon-button
+      routerLink="/"
+      [attr.aria-label]="'MAIN.HOME' | translate"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+    <h1>{{ "HABITS.TITLE" | translate }}</h1>
+  </div>
+  <div class="habits-list">habits-list</div>
+  <div class="habits-create">
+    <app-big-button>
+      {{ "HABITS.CREATE" | translate }}
+    </app-big-button>
+  </div>
+</div>
