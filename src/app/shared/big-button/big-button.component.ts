@@ -23,8 +23,8 @@ import { MatRipple } from '@angular/material/core';
         justify-content: center;
         background-color: var(--primary);
         font-size: x-large;
-        border-radius: 1rem;
-        @include mat.elevation(2);
+        border-radius: 2rem;
+        @include mat.elevation(3);
       }
     `,
   ],

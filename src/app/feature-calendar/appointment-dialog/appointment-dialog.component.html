@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>{{ "MAIN.DIALOG.HEADER" | translate }}</h2>
 <mat-dialog-content>
   <form #appointmentForm="ngForm">
-    <p>Add an event, f.e. "Game Night"</p>
+    <p>{{ "APPOINTMENT.TITLE.INFO" | translate }}</p>
     <mat-form-field appearance="fill" class="text-input">
       <mat-label>{{ "MAIN.APPOINTMENT.TITLE" | translate }}</mat-label>
       <input matInput [(ngModel)]="data.title" name="title" required />
@@ -15,7 +15,7 @@
         </mat-error>
       }
     </mat-form-field>
-    <p>Add a description, f.e. "19:00 at Benjis, bring beer"</p>
+    <p>{{ "APPOINTMENT.DESCRIPTION.INFO" | translate }}</p>
     <mat-form-field appearance="fill" class="text-input">
       <mat-label>{{ "MAIN.APPOINTMENT.DESCRIPTION" | translate }}</mat-label>
       <input matInput [(ngModel)]="data.description" name="description" />

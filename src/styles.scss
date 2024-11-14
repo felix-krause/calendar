@@ -98,7 +98,7 @@ body {
   align-content: center;
   font-style: italic;
   margin-top: 0;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   @include mat.elevation(4);
 }

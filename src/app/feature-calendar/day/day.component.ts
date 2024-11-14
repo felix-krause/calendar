@@ -31,6 +31,7 @@ import { HabitsDialogComponent } from '../habits-dialog/habits-dialog.component'
 })
 export class DayComponent implements OnInit {
   private _calenderDay = signal<CalendarDay | undefined>(undefined);
+  appointments$?: Observable<Appointment[]>;
 
   @Input()
   set calenderDay(value: CalendarDay | undefined) {
@@ -45,8 +46,6 @@ export class DayComponent implements OnInit {
   get calenderDay(): CalendarDay | undefined {
     return this._calenderDay();
   }
-
-  appointments$?: Observable<Appointment[]>;
 
   constructor(
     private appointmentService: AppointmentService,

@@ -1,1 +1,33 @@
-<p>new-habit-dialog works!</p>
+<h2 mat-dialog-title>{{ "HABITS.DIALOG.HEADER" | translate }}</h2>
+<mat-dialog-content>
+  <form #appointmentForm="ngForm">
+    <p>{{ "HABITS.NAME.INFO" | translate }}</p>
+    <mat-form-field appearance="fill" class="text-input">
+      <mat-label>{{ "HABITS.NAME" | translate }}</mat-label>
+      <input matInput [(ngModel)]="data.title" name="title" required />
+      @if (
+        appointmentForm.controls["title"] &&
+        appointmentForm.controls["title"].invalid &&
+        appointmentForm.controls["title"].touched
+      ) {
+        <mat-error>
+          {{ "MAIN.APPOINTMENT.TITLE_REQUIRED" | translate }}
+        </mat-error>
+      }
+    </mat-form-field>
+    <p>{{ "HABITS.TYPE.INFO" | translate }}</p>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()" tabindex="0">
+    {{ "MAIN.DIALOG.CANCEL" | translate }}
+  </button>
+  <button
+    mat-button
+    [disabled]="appointmentForm.invalid"
+    (click)="onSubmit()"
+    tabindex="0"
+  >
+    {{ "MAIN.DIALOG.SUBMIT" | translate }}
+  </button>
+</mat-dialog-actions>

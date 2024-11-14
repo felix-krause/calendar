@@ -9,9 +9,20 @@
     </button>
     <h1>{{ "HABITS.TITLE" | translate }}</h1>
   </div>
-  <div class="habits-list">habits-list</div>
+  <div class="habits-list">
+    <div *ngFor="let habit of habits$ | async">
+      {{ habit | json }}
+    </div>
+    TODO: Display boxes like on github red/green for done/not done of the last
+    xx days
+    <!-- <app-habit
+      *ngFor="let habit of habits"
+      [habit]="habit"
+      (delete)="deleteHabit($event)"
+    ></app-habit> -->
+  </div>
   <div class="habits-create">
-    <app-big-button>
+    <app-big-button (click)="addNewHabit()">
       {{ "HABITS.CREATE" | translate }}
     </app-big-button>
   </div>

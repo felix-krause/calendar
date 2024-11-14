@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './layout/header/header.component';
 import { TranslateService } from '@ngx-translate/core';
+import { AppService } from './core/services/app.service';
+import { AppQuery } from './core/state/app.query';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -14,18 +16,24 @@ export class AppComponent {
   constructor(
     public translate: TranslateService,
     private router: Router,
+    private appService: AppService,
+    private appQuery: AppQuery,
   ) {
     translate.addLangs(['de', 'en', 'fr', 'it']);
-    translate.setDefaultLang('en');
-
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang?.match(/de|en|fr|it/) ? browserLang : 'en');
-
-    // TODO: use state mgmt to access localstorage
-    if (JSON.parse(localStorage.getItem('navigateToCalendar') ?? 'false')) {
-      this.router.navigate(['/calendar']);
-    }
-    // TODO: use state mgmt to access localstorage
-    localStorage.setItem('navigateToCalendar', 'true');
+    translate.setDefaultLang(
+      browserLang?.match(/de|en|fr|it/) ? browserLang : 'en',
+    );
+    this.appQuery.language$.subscribe((lang) => {
+      translate.use(lang);
+    });
+    this.appQuery.navigateToCalendar$
+      .pipe(first())
+      .subscribe((shouldNavigate) => {
+        if (shouldNavigate) {
+          this.router.navigate(['/calendar']);
+        }
+        this.appService.setNavigateToCalendar(true);
+      });
   }
 }

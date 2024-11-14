@@ -20,5 +20,7 @@
   "APP.TITLE": "Get it Done!",
   "APP.CALENDAR": "Calendar",
   "APP.HABITS": "Habits",
-  "APP.COPY": "Life can get messy, but staying organized doesn’t have to be hard. We help you manage it all with simple tools that keep you focused and in control. Stay effortlessly organized."
+  "APP.COPY": "Life can get messy, but staying organized doesn’t have to be hard. We help you manage it all with simple tools that keep you focused and in control. Stay effortlessly organized.",
+  "APPOINTMENT.TITLE.INFO": "Add an event, f.e. \"Game Night\"",
+  "APPOINTMENT.DESCRIPTION.INFO": "Add a description, f.e. \"19:00 at Benjis, bring beer\""
 }
