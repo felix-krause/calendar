@@ -1,30 +1,22 @@
 import { Injectable } from '@angular/core';
-import Dexie from 'dexie';
 import { Habit } from '../models/habit';
+import { DatabaseService } from './database.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HabitsDbService extends Dexie {
-  habits: Dexie.Table<Habit, number>;
-
-  constructor() {
-    super('AppointmentDatabase');
-    this.version(1).stores({
-      habits: '++id, title',
-    });
-    this.habits = this.table('habits');
-  }
+export class HabitsDbService {
+  constructor(private db: DatabaseService) {}
 
   async createHabit(habit: Habit) {
-    return await this.habits.add(habit);
+    return await this.db.habits.add(habit);
   }
 
   async getHabits() {
-    return await this.habits.toArray();
+    return await this.db.habits.toArray();
   }
 
   async deleteHabit(id: number) {
-    return await this.habits.delete(id);
+    return await this.db.habits.delete(id);
   }
 }
