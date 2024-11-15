@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
@@ -12,6 +12,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
+import {
+  TrackedHabitDialogData,
+  Habit,
+  TrackedHabit,
+} from '../../core/models/habit';
+import { HabitsService } from '../../core/services/habits.service';
+import { filter, map, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-habits-dialog',
@@ -27,16 +34,14 @@ import { CommonModule } from '@angular/common';
   ],
   templateUrl: './habits-dialog.component.html',
   styleUrl: './habits-dialog.component.scss',
+  host: { class: 'app-habits-dialog' },
+  encapsulation: ViewEncapsulation.None,
 })
 export class HabitsDialogComponent {
-  habitTrackingData: any[] = [
-    { name: 'some name', done: false },
-    { name: 'some other', done: true },
-  ];
-
   constructor(
     public dialogRef: MatDialogRef<AppointmentDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: AppointmentDialogData,
+    @Inject(MAT_DIALOG_DATA) public data: TrackedHabit[],
+    private habitsService: HabitsService,
   ) {}
 
   onCancel(): void {
@@ -45,5 +50,12 @@ export class HabitsDialogComponent {
 
   onSubmit(): void {
     this.dialogRef.close(this.data);
+  }
+
+  getHabitName(habitId: number): Observable<string> {
+    return this.habitsService.getHabitById(habitId).pipe(
+      filter((habit) => !!habit),
+      map((habit) => habit.title),
+    );
   }
 }

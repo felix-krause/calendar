@@ -1,0 +1,47 @@
+@use "@angular/material" as mat;
+.app-habit {
+  margin: 1rem;
+  display: block;
+  padding: 1rem;
+  margin: 0.25rem;
+
+  .habit-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .habit-box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .habit-box {
+    width: 1.25rem;
+    height: 1.25rem;
+    @include mat.elevation(1);
+    border-radius: 0.25rem;
+    flex: 0 0 auto;
+
+    &.past {
+      background-color: #f5b7ac;
+      &.done {
+        background-color: #92bc3a;
+      }
+    }
+
+    &.today {
+      background-color: lighten(#f5b7ac, 11%);
+      &.done {
+        background-color: lighten(#92bc3a, 25%);
+      }
+    }
+
+    &.future {
+      background-color: lighten(#92bc3a, 33%);
+      &.done {
+        background-color: lighten(#92bc3a, 25%);
+      }
+    }
+  }
+}

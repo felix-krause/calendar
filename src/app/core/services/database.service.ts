@@ -1,7 +1,7 @@
 import Dexie from 'dexie';
 import { Injectable } from '@angular/core';
 import { Appointment } from '../models/appointment';
-import { Habit } from '../models/habit';
+import { Habit, TrackedHabit } from '../models/habit';
 
 @Injectable({
   providedIn: 'root',
@@ -9,25 +9,28 @@ import { Habit } from '../models/habit';
 export class DatabaseService extends Dexie {
   appointments: Dexie.Table<Appointment, number>;
   habits: Dexie.Table<Habit, number>;
+  trackedHabits: Dexie.Table<TrackedHabit, number>;
 
   constructor() {
-    super('AppointmentDatabase');
+    super('CalendarDatabase');
 
-    // Version 1 - Initial schema
     this.version(1).stores({
       appointments: '++id, title, date, description',
     });
 
-    // Version 2 - Added habits
     this.version(2).stores({
       appointments: '++id, title, date, description',
       habits: '++id, title',
     });
 
-    // Future versions...
-    // this.version(3)...
+    this.version(3).stores({
+      appointments: '++id, title, date, description',
+      habits: '++id, title',
+      trackedHabits: '++id, habitId, done, date',
+    });
 
     this.appointments = this.table('appointments');
     this.habits = this.table('habits');
+    this.trackedHabits = this.table('trackedHabits');
   }
 }

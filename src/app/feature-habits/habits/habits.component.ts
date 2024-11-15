@@ -10,6 +10,7 @@ import { NewHabitDialogComponent } from '../new-habit-dialog/new-habit-dialog.co
 import { filter, Observable } from 'rxjs';
 import { Habit, NewHabitDialogData } from '../../core/models/habit';
 import { HabitsService } from '../../core/services/habits.service';
+import { HabitComponent } from '../habit/habit.component';
 
 @Component({
   selector: 'app-habits',
@@ -21,11 +22,12 @@ import { HabitsService } from '../../core/services/habits.service';
     TranslateModule,
     MatIconModule,
     MatButtonModule,
+    HabitComponent,
   ],
   templateUrl: './habits.component.html',
   styleUrl: './habits.component.scss',
 })
-export class HabitsComponent implements OnInit {
+export class HabitsComponent {
   habits$: Observable<Habit[]>;
 
   constructor(
@@ -33,10 +35,6 @@ export class HabitsComponent implements OnInit {
     private dialog: MatDialog,
   ) {
     this.habits$ = this.habitsService.habits$;
-  }
-
-  ngOnInit(): void {
-    this.habitsService.loadHabits();
   }
 
   addNewHabit() {

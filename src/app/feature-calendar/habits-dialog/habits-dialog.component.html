@@ -1,28 +1,28 @@
 <h2 mat-dialog-title>{{ "HABITS.DIALOG.HEADER" | translate }}</h2>
 <mat-dialog-content>
-  <form #appointmentForm="ngForm">
+  <form #dialogForm="ngForm">
     <p>{{ "HABITS.DIALOG.INFO" | translate }}</p>
-    {{ habitTrackingData | json }}
     <mat-checkbox
-      *ngFor="let habit of habitTrackingData; let i = index"
+      *ngFor="let habit of data; let i = index"
       [(ngModel)]="habit.done"
       [name]="'habit_' + i"
-      class="checkbox-margin"
+      [labelPosition]="'before'"
+      class="habit-checkbox"
     >
-      habit.name
+      {{ getHabitName(habit.habitId) | async }}
     </mat-checkbox>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onCancel()" tabindex="0">
-    {{ "HABITS.DIALOG.CANCEL" | translate }}
+    {{ "MAIN.DIALOG.CANCEL" | translate }}
   </button>
   <button
     mat-button
-    [disabled]="appointmentForm.invalid"
+    [disabled]="dialogForm.invalid"
     (click)="onSubmit()"
     tabindex="0"
   >
-    {{ "HABITS.DIALOG.SUBMIT" | translate }}
+    {{ "MAIN.DIALOG.SUBMIT" | translate }}
   </button>
 </mat-dialog-actions>

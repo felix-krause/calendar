@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoComponent } from './todo.component';
+import { HabitComponent } from './habit.component';
 
-describe('TodoComponent', () => {
-  let component: TodoComponent;
-  let fixture: ComponentFixture<TodoComponent>;
+describe('HabitComponent', () => {
+  let component: HabitComponent;
+  let fixture: ComponentFixture<HabitComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TodoComponent],
+      imports: [HabitComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TodoComponent);
+    fixture = TestBed.createComponent(HabitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,14 +10,16 @@ export class AppointmentService {
   constructor(
     private appointmentStore: AppointmentStore,
     private appointmentDbService: AppointmentDbService,
-  ) {}
+  ) {
+    this.load();
+  }
 
   async addAppointment(appointment: Appointment) {
     const id = await this.appointmentDbService.addAppointment(appointment);
     this.appointmentStore.add({ ...appointment, id });
   }
 
-  async loadAppointments() {
+  async load() {
     const appointments = await this.appointmentDbService.getAppointments();
     this.appointmentStore.set(appointments);
   }

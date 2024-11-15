@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from './core/services/app.service';
-import { AppQuery } from './core/state/app.query';
 import { first } from 'rxjs';
+import { AppQuery } from './core/state/app.state';
 
 @Component({
   selector: 'app-root',

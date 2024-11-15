@@ -1,0 +1,38 @@
+@if (habit) {
+  <div class="habit-header">
+    <div>
+      <div style="font-size: x-large">{{ habit.title }}</div>
+      <div style="font-size: small; font-weight: 200">
+        {{ currentDate | date: "MMMM yyyy" }}
+      </div>
+    </div>
+    <div>
+      <button
+        mat-icon-button
+        (click)="prevMonth()"
+        [attr.aria-label]="'MAIN.PREVIOUSMONTH' | translate"
+      >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="nextMonth()"
+        [attr.aria-label]="'MAIN.NEXTMONTH' | translate"
+      >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="habit-box-container">
+    <div
+      *ngFor="let trackedHabit of trackedHabits$ | async"
+      class="habit-box"
+      [ngClass]="{
+        done: trackedHabit.done,
+        future: trackedHabit.future,
+        past: trackedHabit.past,
+        today: trackedHabit.today,
+      }"
+    ></div>
+  </div>
+}

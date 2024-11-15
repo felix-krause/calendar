@@ -7,6 +7,7 @@ import { CalendarDay } from '../../core/models/calendar-day';
 import { DayComponent } from '../day/day.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { CalendarService } from '../../core/services/calendar.service';
 
 @Component({
   selector: 'app-calender',
@@ -27,8 +28,8 @@ export class CalenderComponent implements AfterViewInit {
   currentDate: Date = new Date();
   datesInMonth: CalendarDay[] = [];
 
-  constructor() {
-    this.generateMonth(
+  constructor(private calendarService: CalendarService) {
+    this.datesInMonth = this.calendarService.generateMonth(
       this.currentDate.getFullYear(),
       this.currentDate.getMonth(),
     );
@@ -37,26 +38,12 @@ export class CalenderComponent implements AfterViewInit {
     this.scrollToToday();
   }
 
-  generateMonth(year: number, month: number) {
-    const date = new Date(year, month, 1);
-    const dates = [];
-    while (date.getMonth() === month) {
-      const day = new Date(date);
-      const calenderDay: CalendarDay = {
-        day: day.getDay(),
-        date: day.getDate(),
-        today: day.toDateString() === new Date().toDateString(),
-        isoString: day.toISOString(),
-      };
-      dates.push(calenderDay);
-      date.setDate(date.getDate() + 1);
-    }
-    this.datesInMonth = dates;
-  }
-
   prevMonth() {
-    this.incrementMonth(-1);
-    this.generateMonth(
+    this.currentDate = this.calendarService.incrementMonth(
+      this.currentDate,
+      -1,
+    );
+    this.datesInMonth = this.calendarService.generateMonth(
       this.currentDate.getFullYear(),
       this.currentDate.getMonth(),
     );
@@ -64,20 +51,12 @@ export class CalenderComponent implements AfterViewInit {
   }
 
   nextMonth() {
-    this.incrementMonth(1);
-    this.generateMonth(
+    this.currentDate = this.calendarService.incrementMonth(this.currentDate, 1);
+    this.datesInMonth = this.calendarService.generateMonth(
       this.currentDate.getFullYear(),
       this.currentDate.getMonth(),
     );
     this.scrollToToday();
-  }
-
-  private incrementMonth(delta: number): void {
-    this.currentDate = new Date(
-      this.currentDate.getFullYear(),
-      this.currentDate.getMonth() + delta,
-      this.currentDate.getDate(),
-    );
   }
 
   private scrollToToday() {

@@ -17,6 +17,7 @@ export class HabitsService {
     private habitsQuery: HabitsQuery,
   ) {
     this.habits$ = this.habitsQuery.habits$;
+    this.load();
   }
 
   async createHabit(habit: Habit) {
@@ -24,7 +25,7 @@ export class HabitsService {
     this.habitsStore.add({ ...habit, id });
   }
 
-  async loadHabits() {
+  async load() {
     const habits = await this.habitsDbService.getHabits();
     this.habitsStore.set(habits);
   }
@@ -32,5 +33,9 @@ export class HabitsService {
   async deleteHabit(id: number) {
     await this.habitsDbService.deleteHabit(id);
     this.habitsStore.remove(id);
+  }
+
+  getHabitById(id: number): Observable<Habit | undefined> {
+    return this.habitsQuery.selectEntity(id);
   }
 }

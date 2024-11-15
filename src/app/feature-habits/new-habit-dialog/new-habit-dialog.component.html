@@ -1,21 +1,22 @@
-<h2 mat-dialog-title>{{ "HABITS.DIALOG.HEADER" | translate }}</h2>
+<h2 mat-dialog-title>{{ "NEWHABIT.DIALOG.HEADER" | translate }}</h2>
 <mat-dialog-content>
-  <form #appointmentForm="ngForm">
-    <p>{{ "HABITS.NAME.INFO" | translate }}</p>
+  <form #dialogForm="ngForm">
+    <p>{{ "NEWHABIT.NAME.INFO" | translate }}</p>
     <mat-form-field appearance="fill" class="text-input">
-      <mat-label>{{ "HABITS.NAME" | translate }}</mat-label>
+      <mat-label>{{ "NEWHABIT.TITLE" | translate }}</mat-label>
       <input matInput [(ngModel)]="data.title" name="title" required />
       @if (
-        appointmentForm.controls["title"] &&
-        appointmentForm.controls["title"].invalid &&
-        appointmentForm.controls["title"].touched
+        dialogForm.controls["title"] &&
+        dialogForm.controls["title"].invalid &&
+        dialogForm.controls["title"].touched
       ) {
         <mat-error>
-          {{ "MAIN.APPOINTMENT.TITLE_REQUIRED" | translate }}
+          {{ "NEWHABIT.DIALOG.TITLE_REQUIRED" | translate }}
         </mat-error>
       }
     </mat-form-field>
-    <p>{{ "HABITS.TYPE.INFO" | translate }}</p>
+    <p>{{ "NEWHABIT.TYPE.INFO" | translate }}</p>
+    <p>{{ "NEWHABIT.RECURRENCE.INFO" | translate }}</p>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
@@ -24,7 +25,7 @@
   </button>
   <button
     mat-button
-    [disabled]="appointmentForm.invalid"
+    [disabled]="dialogForm.invalid"
     (click)="onSubmit()"
     tabindex="0"
   >

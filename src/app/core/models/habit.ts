@@ -6,16 +6,12 @@ export interface Habit extends NewHabitDialogData {
   id?: number;
 }
 
-export interface DoneHabit {
+export interface TrackedHabitDialogData {
   habitId: number;
-  id?: number;
-  date: string;
   done: boolean;
 }
 
-export interface HabitTrackingDialogData {
-  habit: Habit;
-  tracked: boolean;
+export interface TrackedHabit extends TrackedHabitDialogData {
+  id?: number;
+  date: string;
 }
-
-export interface HabitTrackingData extends HabitTrackingDialogData {}
