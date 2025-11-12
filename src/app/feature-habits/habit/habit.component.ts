@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-habit',
@@ -19,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
     TranslateModule,
     MatIconModule,
     MatButtonModule,
+    MatTooltipModule,
   ],
   templateUrl: './habit.component.html',
   styleUrl: './habit.component.scss',

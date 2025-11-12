@@ -8,6 +8,7 @@ import { DayComponent } from '../day/day.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { CalendarService } from '../../core/services/calendar.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-calender',
@@ -20,6 +21,7 @@ import { CalendarService } from '../../core/services/calendar.service';
     MatIconModule,
     DayComponent,
     RouterModule,
+    MatTooltipModule,
   ],
   templateUrl: './calender.component.html',
   styleUrl: './calender.component.scss',

@@ -1,3 +1,5 @@
+@import "../../../breakpoints.scss";
+
 .calendar-day {
   &.today {
     background-color: var(--primary);
@@ -19,6 +21,10 @@
     .day {
       font-size: small;
       font-weight: 200;
+    }
+
+    .actions {
+      margin-top: -8px;
     }
   }
 
@@ -42,6 +48,44 @@
         font-size: small;
         font-weight: 200;
       }
+    }
+  }
+  .habits {
+    display: flex;
+    gap: 4px;
+    flex-direction: row-reverse;
+    height: 8px;
+
+    .habits-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background-color: var(--text);
+    }
+  }
+
+  .blocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+    margin: 4px -16px 8px;
+    align-items: center;
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .calendar-day {
+    .date-and-day .title {
+      display: flex;
+      flex-direction: column;
+    }
+    .date-and-day .actions {
+      display: flex;
+      flex-direction: row;
+    }
+    .blocks {
+      margin: 8px -16px;
     }
   }
 }

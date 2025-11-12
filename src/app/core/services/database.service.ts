@@ -2,6 +2,7 @@ import Dexie from 'dexie';
 import { Injectable } from '@angular/core';
 import { Appointment } from '../models/appointment';
 import { Habit, TrackedHabit } from '../models/habit';
+import { TrackedBlock } from '../models/block';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ export class DatabaseService extends Dexie {
   appointments: Dexie.Table<Appointment, number>;
   habits: Dexie.Table<Habit, number>;
   trackedHabits: Dexie.Table<TrackedHabit, number>;
+  trackedBlocks: Dexie.Table<TrackedBlock, number>;
 
   constructor() {
     super('CalendarDatabase');
@@ -29,8 +31,16 @@ export class DatabaseService extends Dexie {
       trackedHabits: '++id, habitId, done, date',
     });
 
+    this.version(4).stores({
+      appointments: '++id, title, date, description',
+      habits: '++id, title',
+      trackedHabits: '++id, habitId, done, date',
+      trackedBlocks: '++id, schedule, date',
+    });
+
     this.appointments = this.table('appointments');
     this.habits = this.table('habits');
     this.trackedHabits = this.table('trackedHabits');
+    this.trackedBlocks = this.table('trackedBlocks');
   }
 }

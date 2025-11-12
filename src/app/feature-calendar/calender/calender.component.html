@@ -4,6 +4,7 @@
       mat-icon-button
       routerLink="/"
       [attr.aria-label]="'MAIN.HOME' | translate"
+      [matTooltip]="'MAIN.HOME' | translate"
     >
       <mat-icon>home</mat-icon>
     </button>
@@ -12,6 +13,7 @@
       mat-icon-button
       (click)="prevMonth()"
       [attr.aria-label]="'MAIN.PREVIOUSMONTH' | translate"
+      [matTooltip]="'MAIN.PREVIOUSMONTH' | translate"
     >
       <mat-icon>chevron_left</mat-icon>
     </button>
@@ -19,6 +21,7 @@
       mat-icon-button
       (click)="nextMonth()"
       [attr.aria-label]="'MAIN.NEXTMONTH' | translate"
+      [matTooltip]="'MAIN.NEXTMONTH' | translate"
     >
       <mat-icon>chevron_right</mat-icon>
     </button>
@@ -26,7 +29,10 @@
 
   <div class="calendar-list">
     @for (calenderDay of datesInMonth; track calenderDay.date) {
-      <app-day [calenderDay]="calenderDay"></app-day>
+      <app-day
+        [ngClass]="['dow-' + calenderDay.day]"
+        [calenderDay]="calenderDay"
+      ></app-day>
     }
   </div>
 </div>

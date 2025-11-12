@@ -1,4 +1,10 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  inject,
+  Inject,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
@@ -19,6 +25,7 @@ import {
 } from '../../core/models/habit';
 import { HabitsService } from '../../core/services/habits.service';
 import { filter, map, Observable, of } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-habits-dialog',
@@ -31,6 +38,7 @@ import { filter, map, Observable, of } from 'rxjs';
     TranslateModule,
     MatCheckboxModule,
     CommonModule,
+    RouterLink,
   ],
   templateUrl: './habits-dialog.component.html',
   styleUrl: './habits-dialog.component.scss',
@@ -38,10 +46,11 @@ import { filter, map, Observable, of } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class HabitsDialogComponent {
+  private habitsService = inject(HabitsService);
+
   constructor(
     public dialogRef: MatDialogRef<AppointmentDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TrackedHabit[],
-    private habitsService: HabitsService,
   ) {}
 
   onCancel(): void {

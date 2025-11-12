@@ -7,33 +7,61 @@
     }"
   >
     <div class="date-and-day">
-      <div>
+      <div class="title">
         <span class="date">{{ calenderDay.date }} </span>
         <span class="day">{{
           "MAIN.WEEKDAY." + calenderDay.day | translate
         }}</span>
       </div>
-      <div>
+      <div class="actions">
+        <button
+          mat-icon-button
+          (click)="editBlocks()"
+          [attr.aria-label]="'MAIN.EDITBLOCKS' | translate"
+          [matTooltip]="'MAIN.EDITBLOCKS' | translate"
+        >
+          <mat-icon>view_timeline</mat-icon>
+        </button>
         <button
           mat-icon-button
           (click)="addHabits()"
           [attr.aria-label]="'MAIN.ADDHABITS' | translate"
+          [matTooltip]="'MAIN.ADDHABITS' | translate"
         >
-          <mat-icon>checklist_rtl</mat-icon>
+          <mat-icon>check_box</mat-icon>
         </button>
         <button
           mat-icon-button
           (click)="addAppointment()"
           [attr.aria-label]="'MAIN.ADDAPPOINTMENT' | translate"
+          [matTooltip]="'MAIN.ADDAPPOINTMENT' | translate"
         >
-          <mat-icon>add</mat-icon>
+          <mat-icon>add_box</mat-icon>
         </button>
       </div>
+    </div>
+    <div class="blocks">
+      @for (block of (trackedBlock$ | async)?.schedule; track $index) {
+        <app-block
+          [block]="block"
+          [matTooltip]="blockTooltips[$index]"
+        ></app-block>
+      }
+    </div>
+    <div class="habits" [matTooltip]="habitsTooltip">
+      @for (trackedHabits of trackedHabits$ | async; track trackedHabits.id) {
+        <div class="habits-dot"></div>
+      }
     </div>
     <div class="appointments">
       @for (appointment of appointments$ | async; track appointment.id) {
         <div class="appointment">
-          <button mat-icon-button (click)="deleteAppointment(appointment.id!)">
+          <button
+            mat-icon-button
+            (click)="deleteAppointment(appointment.id!)"
+            [attr.aria-label]="'MAIN.DELETEAPPOINTMENT' | translate"
+            [matTooltip]="'MAIN.DELETEAPPOINTMENT' | translate"
+          >
             <mat-icon>close</mat-icon>
           </button>
           <div>

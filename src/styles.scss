@@ -102,3 +102,7 @@ body {
   border-bottom-right-radius: 1rem;
   @include mat.elevation(4);
 }
+
+div.mat-mdc-select-panel {
+  max-height: unset !important;
+}

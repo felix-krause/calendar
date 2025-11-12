@@ -1,0 +1,80 @@
+<h2 mat-dialog-title>{{ "BLOCKS.DIALOG.HEADER" | translate }}</h2>
+<mat-dialog-content>
+  <form #dialogForm="ngForm">
+    <p>{{ "BLOCKS.DIALOG.INFO" | translate }}</p>
+
+    @for (block of schedule; track $index) {
+      <mat-select
+        [(ngModel)]="schedule[$index]"
+        [name]="'block' + $index"
+        [style]="
+          'padding: 8px 0; background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%,' +
+          getBlockColorInternal(schedule[$index]) +
+          ' 50% 75%, rgba(0, 0, 0, 0) 100%'
+        "
+      >
+        <mat-option value="-1">{{ "BLOCKS.NONE" | translate }}</mat-option>
+        @for (blockType of blockTypes; track $index) {
+          <mat-option
+            value="{{ blockType }}"
+            [style]="
+              'background: linear-gradient(100deg,rgba(0, 0, 0, 0) ' +
+              (170 - $index * 10) +
+              'px, ' +
+              getBlockColorInternal(blockType) +
+              ' 90%);'
+            "
+            >{{ "BLOCKS." + blockType | translate }}</mat-option
+          >
+        }
+      </mat-select>
+    }
+
+    <div class="add-block-action">
+      <button
+        mat-icon-button
+        (click)="addBlock()"
+        [attr.aria-label]="'BLOCKS.DIALOG.ADDBLOCK' | translate"
+        [matTooltip]="'BLOCKS.DIALOG.ADDBLOCK' | translate"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <mat-expansion-panel style="margin: 16px 0 4px">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ "BLOCKS.DIALOG.LEGEND" | translate }}</mat-panel-title
+        >
+      </mat-expansion-panel-header>
+      @for (blockType of blockTypes; track $index) {
+        <div
+          [style]="
+            'background: linear-gradient(100deg,rgba(0, 0, 0, 0) ' +
+            (170 - $index * 10) +
+            'px, ' +
+            getBlockColorInternal(blockType) +
+            ' 90%);max-width: 430px;margin: auto;'
+          "
+        >
+          {{ "BLOCKS." + blockType | translate }}<br /><span
+            style="font-size: 12px"
+            >{{ "BLOCKS." + blockType + ".INFO" | translate }}</span
+          >
+        </div>
+      }
+    </mat-expansion-panel>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()" tabindex="0">
+    {{ "MAIN.DIALOG.CANCEL" | translate }}
+  </button>
+  <button
+    mat-button
+    [disabled]="dialogForm.invalid"
+    (click)="onSubmit()"
+    tabindex="0"
+  >
+    {{ "MAIN.DIALOG.SUBMIT" | translate }}
+  </button>
+</mat-dialog-actions>

@@ -1,16 +1,23 @@
 <h2 mat-dialog-title>{{ "HABITS.DIALOG.HEADER" | translate }}</h2>
 <mat-dialog-content>
   <form #dialogForm="ngForm">
-    <p>{{ "HABITS.DIALOG.INFO" | translate }}</p>
-    <mat-checkbox
-      *ngFor="let habit of data; let i = index"
-      [(ngModel)]="habit.done"
-      [name]="'habit_' + i"
-      [labelPosition]="'before'"
-      class="habit-checkbox"
-    >
-      {{ getHabitName(habit.habitId) | async }}
-    </mat-checkbox>
+    @if (data && data.length > 0) {
+      <p>{{ "HABITS.DIALOG.INFO" | translate }}</p>
+      <mat-checkbox
+        *ngFor="let habit of data; let i = index"
+        [(ngModel)]="habit.done"
+        [name]="'habit_' + i"
+        [labelPosition]="'before'"
+        class="habit-checkbox"
+      >
+        {{ getHabitName(habit.habitId) | async }}
+      </mat-checkbox>
+    } @else {
+      <p>{{ "HABITS.DIALOG.NODATA" | translate }}</p>
+      <a routerLink="/habits" (click)="onCancel()">{{
+        "HABITS.DIALOG.NODATALINK" | translate
+      }}</a>
+    }
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>

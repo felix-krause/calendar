@@ -11,6 +11,7 @@ import { filter, Observable } from 'rxjs';
 import { Habit, NewHabitDialogData } from '../../core/models/habit';
 import { HabitsService } from '../../core/services/habits.service';
 import { HabitComponent } from '../habit/habit.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-habits',
@@ -23,6 +24,7 @@ import { HabitComponent } from '../habit/habit.component';
     MatIconModule,
     MatButtonModule,
     HabitComponent,
+    MatTooltipModule,
   ],
   templateUrl: './habits.component.html',
   styleUrl: './habits.component.scss',
