@@ -1,15 +1,5 @@
 <div class="habits">
-  <div class="habits-header header">
-    <button
-      mat-icon-button
-      routerLink="/"
-      [attr.aria-label]="'MAIN.HOME' | translate"
-      [matTooltip]="'MAIN.HOME' | translate"
-    >
-      <mat-icon>home</mat-icon>
-    </button>
-    <h1>{{ "HABITS.TITLE" | translate }}</h1>
-  </div>
+  <app-header i18nTitle="HABITS.TITLE"></app-header>
   <div class="habits-list">
     <app-habit
       *ngFor="let habit of habits$ | async"

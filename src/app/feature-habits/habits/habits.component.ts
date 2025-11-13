@@ -12,6 +12,7 @@ import { Habit, NewHabitDialogData } from '../../core/models/habit';
 import { HabitsService } from '../../core/services/habits.service';
 import { HabitComponent } from '../habit/habit.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HeaderComponent } from '../../layout/header/header.component';
 
 @Component({
   selector: 'app-habits',
@@ -25,6 +26,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     HabitComponent,
     MatTooltipModule,
+    HeaderComponent,
   ],
   templateUrl: './habits.component.html',
   styleUrl: './habits.component.scss',

@@ -1,14 +1,5 @@
 <div class="calendar">
-  <div class="calendar-header header">
-    <button
-      mat-icon-button
-      routerLink="/"
-      [attr.aria-label]="'MAIN.HOME' | translate"
-      [matTooltip]="'MAIN.HOME' | translate"
-    >
-      <mat-icon>home</mat-icon>
-    </button>
-    <h1 class="month-display">{{ currentDate | date: "MMMM yyyy" }}</h1>
+  <app-header [i18nTitle]="(currentDate | date: 'MMMM yyyy') ?? ''">
     <button
       mat-icon-button
       (click)="prevMonth()"
@@ -25,7 +16,7 @@
     >
       <mat-icon>chevron_right</mat-icon>
     </button>
-  </div>
+  </app-header>
 
   <div class="calendar-list">
     @for (calenderDay of datesInMonth; track calenderDay.date) {

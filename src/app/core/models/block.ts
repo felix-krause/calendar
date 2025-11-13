@@ -16,17 +16,17 @@ export enum BlockType {
 export function getBlockColor(type: BlockType | undefined): string {
   switch (type) {
     case BlockType.DEVELOPMENT:
-      return 'deepskyblue';
+      return '#fdf273ff';
     case BlockType.FOCUS:
-      return 'aquamarine';
+      return '#5ce793ff';
     case BlockType.ORGANISATION:
-      return 'gold';
+      return '#076edeff';
     case BlockType.SELFCARE:
-      return 'orangered';
+      return '#7a0ae4ff';
     case BlockType.SOCIAL:
-      return 'fuchsia';
+      return '#f45d94ff';
     case BlockType.SPORT:
-      return 'blueviolet';
+      return '#fe845bff';
   }
 
   return '';

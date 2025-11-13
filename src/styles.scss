@@ -6,6 +6,8 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
+@import "material-icons/iconfont/material-icons.css";
+
 // Define the theme object.
 $calendar-light: mat.define-theme(
   (
@@ -46,8 +48,6 @@ $calendar-dark: mat.define-theme(
 // Comment out the line below if you want to use the deprecated `color` inputs.
 // @include mat.color-variants-backwards-compatibility($calendar-theme);
 
-// @import "@fontsource/roboto/index.css";
-
 :root {
   --primary: #ffbe98;
   --bg: #eeefe3;
@@ -65,7 +65,7 @@ body {
   height: 100%;
   background-color: var(--bg);
   margin: 0;
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--text) !important;
 }
 
@@ -87,22 +87,25 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.header {
-  background-color: var(--primary);
-  font-weight: 700;
-  height: 60px;
-  padding: 0 1rem;
-  align-content: center;
-  font-style: italic;
-  margin-top: 0;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  @include mat.elevation(4);
+  font-family: "Inter", sans-serif;
 }
 
 div.mat-mdc-select-panel {
   max-height: unset !important;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/Inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
 }
