@@ -90,3 +90,9 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-desktop) {
+  .calendar-day {
+    background-color: var(--bg);
+  }
+}

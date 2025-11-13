@@ -3,6 +3,7 @@
 .calendar {
   height: 100vh;
   overflow: auto;
+  background-color: black;
 
   .calendar-header {
     .month-display {
@@ -19,6 +20,8 @@
   }
 
   @media (min-width: $breakpoint-desktop) {
+    background-color: var(--bg);
+
     .calendar-list {
       list-style-type: none;
       list-style: none;
