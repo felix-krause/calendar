@@ -13,7 +13,7 @@ This is your traditional wall calendar as an app, in the most simple way i can i
 
 ## Github Pages
 
-- 'npm run build`will build the project to`gh-pages` folder
+- `npm run build` will build the project to `gh-pages` folder
 - Github Actions deploy the latest contents of the folder `gh-pages`
 
 ## Color Palette
