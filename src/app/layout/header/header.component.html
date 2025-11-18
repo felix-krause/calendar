@@ -1,39 +1,41 @@
-<button
-  mat-icon-button
-  [matMenuTriggerFor]="menu"
-  [attr.aria-label]="'MAIN.HOME' | translate"
-  [matTooltip]="'MAIN.HOME' | translate"
->
-  <mat-icon>menu</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
+<div>
   <button
-    mat-menu-item
-    routerLink="/"
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
     [attr.aria-label]="'MAIN.HOME' | translate"
     [matTooltip]="'MAIN.HOME' | translate"
   >
-    <mat-icon>home</mat-icon>
-    {{ "MAIN.HOME" | translate }}
+    <mat-icon>menu</mat-icon>
   </button>
-  <button
-    mat-menu-item
-    routerLink="/calendar"
-    [attr.aria-label]="'APP.CALENDAR' | translate"
-    [matTooltip]="'APP.CALENDAR' | translate"
-  >
-    <mat-icon>calendar_month</mat-icon>
-    {{ "APP.CALENDAR" | translate }}
-  </button>
-  <button
-    mat-menu-item
-    routerLink="/habits"
-    [attr.aria-label]="'APP.HABITS' | translate"
-    [matTooltip]="'APP.HABITS' | translate"
-  >
-    <mat-icon>check_box</mat-icon>
-    {{ "APP.HABITS" | translate }}
-  </button>
-</mat-menu>
-<h1>{{ i18nTitle() | translate }}</h1>
-<ng-content></ng-content>
+  <mat-menu #menu="matMenu">
+    <button
+      mat-menu-item
+      routerLink="/"
+      [attr.aria-label]="'MAIN.HOME' | translate"
+      [matTooltip]="'MAIN.HOME' | translate"
+    >
+      <mat-icon>home</mat-icon>
+      {{ "MAIN.HOME" | translate }}
+    </button>
+    <button
+      mat-menu-item
+      routerLink="/calendar"
+      [attr.aria-label]="'APP.CALENDAR' | translate"
+      [matTooltip]="'APP.CALENDAR' | translate"
+    >
+      <mat-icon>calendar_month</mat-icon>
+      {{ "APP.CALENDAR" | translate }}
+    </button>
+    <button
+      mat-menu-item
+      routerLink="/habits"
+      [attr.aria-label]="'APP.HABITS' | translate"
+      [matTooltip]="'APP.HABITS' | translate"
+    >
+      <mat-icon>check_box</mat-icon>
+      {{ "APP.HABITS" | translate }}
+    </button>
+  </mat-menu>
+  <h1>{{ i18nTitle() | translate }}</h1>
+  <ng-content></ng-content>
+</div>

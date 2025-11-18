@@ -6,9 +6,9 @@
   }
 
   position: relative;
-  padding: 1rem;
+  padding: 0.51rem;
   margin: 0.25rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 
   .date-and-day {
     display: flex;
@@ -25,7 +25,8 @@
     }
 
     .actions {
-      margin-top: -8px;
+      margin-top: -4px;
+      margin-right: -4px;
     }
   }
 
@@ -70,7 +71,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 0;
-    margin: 4px -16px 8px;
+    margin: 4px -0.5rem 8px;
     align-items: center;
   }
 }

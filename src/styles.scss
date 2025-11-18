@@ -51,13 +51,14 @@ $calendar-dark: mat.define-theme(
 
 :root {
   --primary: hsl(198, 100%, 73%);
-
+  --secondary: hsl(2, 100%, 74%);
   --black: #000;
   --bg: hsl(198, 100%, 98%);
   --text: #402e32;
 
   &.dark {
     --primary: hsl(198, 100%, 38%);
+    --secondary: hsl(2, 100%, 39%);
     --bg: hsl(198, 100%, 12%);
     --text: #dfe0df;
   }
@@ -74,6 +75,8 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
   color: var(--text) !important;
+
+  overscroll-behavior: none;
 }
 
 @media (max-width: 640px) {
