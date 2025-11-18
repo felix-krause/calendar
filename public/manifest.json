@@ -5,27 +5,27 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "icon/icon.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     },
     {
-      "src": "icon/icon-192.png",
+      "src": "icon/icon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "icon/icon-512.png",
+      "src": "icon/icon.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "icon/icon-120.png",
+      "src": "icon/icon.png",
       "type": "image/png",
       "sizes": "120x120"
     },
     {
-      "src": "icon/icon-180.png",
+      "src": "icon/icon.png",
       "type": "image/png",
       "sizes": "180x180"
     }

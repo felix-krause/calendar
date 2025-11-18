@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "prettier . -w && ng build --configuration gh-pages",
-    "test": "ng test"
+    "test": "ng test",
+    "update": "npm-check-updates"
   },
   "private": true,
   "dependencies": {

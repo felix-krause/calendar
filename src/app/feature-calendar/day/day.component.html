@@ -49,8 +49,10 @@
       }
     </div>
     <div class="habits" [matTooltip]="habitsTooltip">
-      @for (trackedHabits of trackedHabits$ | async; track trackedHabits.id) {
-        <div class="habits-dot"></div>
+      @for (trackedHabit of trackedHabits$ | async; track trackedHabit.id) {
+        @if (trackedHabit.done) {
+          <div class="habits-dot"></div>
+        }
       }
     </div>
     <div class="appointments">
