@@ -1,6 +1,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use "@angular/material" as mat;
+@use "sass:color";
 // Plus imports for other components in your app.
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -13,8 +14,8 @@ $calendar-light: mat.define-theme(
   (
     color: (
       theme-type: light,
-      primary: mat.$orange-palette,
-      tertiary: mat.$chartreuse-palette,
+      primary: mat.$azure-palette,
+      tertiary: mat.$red-palette,
     ),
     density: (
       scale: 0,
@@ -25,8 +26,8 @@ $calendar-dark: mat.define-theme(
   (
     color: (
       theme-type: dark,
-      primary: mat.$orange-palette,
-      tertiary: mat.$chartreuse-palette,
+      primary: mat.$azure-palette,
+      tertiary: mat.$red-palette,
     ),
     density: (
       scale: 0,
@@ -49,15 +50,21 @@ $calendar-dark: mat.define-theme(
 // @include mat.color-variants-backwards-compatibility($calendar-theme);
 
 :root {
-  --primary: #ffbe98;
-  --bg: #eeefe3;
+  --primary: hsl(198, 100%, 73%);
+
+  --black: #000;
+  --bg: hsl(198, 100%, 98%);
   --text: #402e32;
 
   &.dark {
-    --primary: #d87737;
-    --bg: #000;
+    --primary: hsl(198, 100%, 38%);
+    --bg: hsl(198, 100%, 12%);
     --text: #dfe0df;
   }
+}
+
+.dow-0 .date {
+  color: #ff7e79;
 }
 
 html,
@@ -108,8 +115,4 @@ div.mat-mdc-select-panel {
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
-}
-
-.dow-0 .date {
-  color: #f54500;
 }

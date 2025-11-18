@@ -101,10 +101,7 @@
   }
 
   ::ng-deep.dark .calendar-day {
-    background-color: var(
-      --mdc-elevated-card-container-color,
-      var(--mat-app-surface)
-    );
+    background-color: var(--bg);
     box-shadow:
       rgba(255, 255, 255, 0.15) 0px 2px 1px -1px,
       rgba(255, 255, 255, 0.05) 0px 1px 1px 0px,

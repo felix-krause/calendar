@@ -3,7 +3,7 @@
 .calendar {
   height: 100vh;
   overflow: auto;
-  background-color: black;
+  background-color: var(--black);
 
   .calendar-header {
     .month-display {
