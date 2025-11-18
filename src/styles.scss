@@ -58,7 +58,7 @@ $calendar-dark: mat.define-theme(
 
   &.dark {
     --primary: hsl(198, 100%, 38%);
-    --secondary: hsl(2, 100%, 39%);
+    --secondary: transparent;
     --bg: hsl(198, 100%, 12%);
     --text: #dfe0df;
   }
@@ -71,7 +71,7 @@ $calendar-dark: mat.define-theme(
 html,
 body {
   height: 100%;
-  background-color: var(--bg);
+  background-color: var(--black);
   margin: 0;
   font-family: "Inter", sans-serif;
   color: var(--text) !important;
@@ -100,8 +100,30 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+app-root > * > div {
+  border-radius: 30px;
+  padding-top: 48px;
+  height: calc(100vh - 56px);
+  border-top: 8px solid var(--black);
+}
+
 div.mat-mdc-select-panel {
   max-height: unset !important;
+}
+
+div.mat-mdc-menu-panel {
+  min-width: calc(100vw - 24px);
+  margin: 12px;
+  background-color: var(--secondary);
+  border-radius: 1rem;
+  @include mat.elevation(4);
+}
+
+.dark div.mat-mdc-menu-panel {
+  backdrop-filter: blur(14px);
+  box-shadow:
+    var(--mat-app-elevation-shadow-level-2, none),
+    white 0 0 1px inset !important;
 }
 
 @font-face {
@@ -118,4 +140,14 @@ div.mat-mdc-select-panel {
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
+}
+
+.dark .borderline {
+  box-shadow:
+    1px 1px 2px -1px rgba(255, 255, 255, 0.7) inset,
+    -1px -1px 2px -1px rgba(254, 255, 255, 0.25) inset;
+  background-color: rgba(255, 255, 255, 0.11);
+  gap: 4px;
+  display: flex;
+  border-radius: 60px;
 }

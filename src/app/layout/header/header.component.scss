@@ -1,37 +1,37 @@
 @use "@angular/material" as mat;
 
 :host.header {
-  height: 2rem;
-  background-color: var(--black);
+  background-color: var(--secondary);
+  font-weight: 700;
+  max-height: 4rem;
+  padding: 0.5rem;
+  margin: 1px 0px 0px 0px;
+  align-content: center;
+  font-style: italic;
+  margin-top: 0;
+  border-radius: 2rem;
+  @include mat.elevation(4);
+
+  display: flex;
+  align-items: center;
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  z-index: 9;
+  top: 0;
+  z-index: 10;
+  gap: 1rem;
 
-  > div {
-    background-color: var(--secondary);
-    font-weight: 700;
-    max-height: 4rem;
-    padding: 0.5rem;
-    margin: 1px 0px 0px 0px;
-    align-content: center;
-    font-style: italic;
-    margin-top: 0;
-    border-radius: 2rem;
-    @include mat.elevation(4);
-
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    gap: 1rem;
-
-    h1 {
-      margin: 0;
-      flex-grow: 1;
-      font-size: x-large;
-    }
+  h1 {
+    margin: 0;
+    flex-grow: 1;
+    font-size: x-large;
   }
+}
+
+::ng-deep.dark .header {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    var(--mat-app-elevation-shadow-level-4),
+    white 0 0 2px inset;
 }

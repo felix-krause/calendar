@@ -1,21 +1,23 @@
 <div class="calendar">
   <app-header [i18nTitle]="(currentDate | date: 'MMMM yyyy') ?? ''">
-    <button
-      mat-icon-button
-      (click)="prevMonth()"
-      [attr.aria-label]="'MAIN.PREVIOUSMONTH' | translate"
-      [matTooltip]="'MAIN.PREVIOUSMONTH' | translate"
-    >
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      (click)="nextMonth()"
-      [attr.aria-label]="'MAIN.NEXTMONTH' | translate"
-      [matTooltip]="'MAIN.NEXTMONTH' | translate"
-    >
-      <mat-icon>chevron_right</mat-icon>
-    </button>
+    <div class="borderline">
+      <button
+        mat-icon-button
+        (click)="prevMonth()"
+        [attr.aria-label]="'MAIN.PREVIOUSMONTH' | translate"
+        [matTooltip]="'MAIN.PREVIOUSMONTH' | translate"
+      >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="nextMonth()"
+        [attr.aria-label]="'MAIN.NEXTMONTH' | translate"
+        [matTooltip]="'MAIN.NEXTMONTH' | translate"
+      >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
   </app-header>
 
   <div class="calendar-list">
